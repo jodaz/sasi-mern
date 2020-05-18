@@ -1,18 +1,27 @@
 const Model = require('../models/Sector');
 
-function get(req, res) {
-  res.json({
-    'true': 'it works'
-  });
-}
+const get = (req, res) => {
+  let query = req.query;
 
-function store(req, res) {
-  const data = {
-    name: req.body.name
-  }
+  Model.find(query)
+    .then(models => res.status(200).json(models))
+    .catch(err => res.status(400).json(err.message));
+};
 
-  new Model(data).save()
+const store = (req, res) => {
+  new Model(req.body).save()
     .then(model => res.status(200).json(model));
-}
+};
 
-module.exports = { get, store };
+const update = (req, res) => {
+  console.log(req.body)
+  const { id, ...data } = req.body;
+
+  Model.findByIdAndUpdate(id, data, {new: true})
+    .then(model => res.status(200).json(model))
+    .catch(err => res.status(400).json(err.message));
+};
+
+// const destroy = (req, res) => {  };
+
+module.exports = { get, store, update };

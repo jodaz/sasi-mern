@@ -1,4 +1,4 @@
-const Model = require('../models/Sector');
+const Model = require('../models/Parish');
 
 const get = (req, res) => {
   let query = req.query;

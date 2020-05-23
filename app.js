@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
+const passport = require('passport');
 const app = express();
 
 require('dotenv').config();
@@ -10,6 +11,8 @@ require('dotenv').config();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(helmet());
+app.use(passport.initialize());
+require('./config/passport')(passport);
 
 // Database
 const DB_DATABASE = process.env.DB_DATABASE;

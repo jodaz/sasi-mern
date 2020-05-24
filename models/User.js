@@ -12,11 +12,11 @@ const UserSchema = new mongoose.Schema({
   email: String,
   address: String,
   community: {
-    type: 'ObjectId',
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Community'
   },
   parish: {
-    type: 'ObjectId',
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Parish'
   }
 },

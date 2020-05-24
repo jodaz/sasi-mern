@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node app.js",
     "client": "npm start --prefix client",
-    "server": "nodemon app.js",
+    "server": "nodemon app.js --ignore client/",
     "dev": "concurrently \"npm run client\" \"npm run server\""
   },
   "keywords": [],

@@ -6,7 +6,7 @@ const applicationRouter = require('./api/applications');
 const communityRouter = require('./api/communities');
 const userRouter = require('./api/users');
 
-module.exports = function(app) {
+module.exports = (app) => {
   app.use(express.json());
   app.use('/api/sectors', sectorRouter);
   app.use('/api/applications', applicationRouter);
@@ -14,4 +14,4 @@ module.exports = function(app) {
   app.use('/api/parishes', parishRouter);
   app.use('/api/communities', communityRouter);
   app.use('/api/users', userRouter);
-}
+};

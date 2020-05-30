@@ -21,6 +21,13 @@ mongoose
 // Routing
 require('./routes')(app);
 
+if (APP_ENV = 'production') {
+  app.use(express.static('client/build'));
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'html'));
+  });
+} 
+
 app.listen(APP_PORT, () => {
   console.log(`Listening on http://127.0.0.1:${APP_PORT}`);
 });

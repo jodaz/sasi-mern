@@ -3,6 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import ButtonLink from '../components/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import { Helmet } from 'react-helmet';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,30 +16,35 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const FormRow = ({classes}) => (
-  <Paper className={classes.paper}>
-    <Grid
-      container 
-      direction="row"
-      justify="center"
-      alignItems="center"
-      spacing={1}
-    >
-      <Grid item>
-        <ButtonLink
-          styles="primary"
-          href="/signup"
-          text="Regístrate"
-          />
+  <React.Fragment>
+    <Helmet>
+      <title>Inicio | SASI</title>
+    </Helmet>
+    <Paper className={classes.paper}>
+      <Grid
+        container 
+        direction="row"
+        justify="center"
+        alignItems="center"
+        spacing={1}
+      >
+        <Grid item>
+          <ButtonLink
+            styles="primary"
+            href="/signup"
+            text="Regístrate"
+            />
+        </Grid>
+        <Grid item>
+          <ButtonLink
+            styles="primary"
+            href="/login"
+            text="Iniciar sesión"
+            />
+        </Grid>
       </Grid>
-      <Grid item>
-        <ButtonLink
-          styles="primary"
-          href="/login"
-          text="Iniciar sesión"
-          />
-      </Grid>
-    </Grid>
-  </Paper>
+    </Paper>
+  </React.Fragment>
 );
 
 const Landing = () => {

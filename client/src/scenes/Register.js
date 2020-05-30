@@ -3,6 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import ButtonLink from '../components/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import { Helmet } from 'react-helmet';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,11 +23,16 @@ const Signup = () => {
   const classes = useStyles();
 
   return (
-    <Grid
-      container
-    >
-      <FormRow classes={classes} />
-    </Grid>
+    <React.Fragment>
+      <Helmet>
+        <title>Regístrate | SASI</title>
+      </Helmet>
+      <Grid
+        container
+      >
+        <FormRow classes={classes} />
+      </Grid>
+    </React.Fragment>
   );
 };
 
